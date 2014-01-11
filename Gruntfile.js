@@ -1,5 +1,6 @@
-module.exports = function(grunt) {
-
+/*jslint node: true, indent: 2 */
+module.exports = function (grunt) {
+  'use strict';
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     // Convert LESS into CSS:
@@ -9,15 +10,21 @@ module.exports = function(grunt) {
       },
       // Process Android LESS file into CSS:
       android: {
-        files: { '<%= pkg.projectPath %>chui/chui-android-<%= pkg.version %>.css': 'src/themes/android/main.less'}
+        files: {
+          '<%= pkg.projectPath %>chui/chui-android-<%= pkg.version %>.css': 'src/themes/android/main.less'
+        }
       },
       // Process iOS LESS file into CSS:
       ios: {
-        files: { '<%= pkg.projectPath %>chui/chui-ios-<%= pkg.version %>.css': 'src/themes/ios/main.less'}
+        files: {
+          '<%= pkg.projectPath %>chui/chui-ios-<%= pkg.version %>.css': 'src/themes/ios/main.less'
+        }
       },
       // Process Windows LESS file into CSS:
       win: {
-        files: { '<%= pkg.projectPath %>chui/chui-win-<%= pkg.version %>.css': 'src/themes/windows/main.less'}
+        files: {
+          '<%= pkg.projectPath %>chui/chui-win-<%= pkg.version %>.css': 'src/themes/windows/main.less'
+        }
       }
     },
     // Concat JavaScript files and Examples:
@@ -41,38 +48,38 @@ module.exports = function(grunt) {
         options: {
           banner: '/*\n    pO\\\n   6  /\\\n     /OO\\\n    /OOOO\\\n  /OOOOOOOO\\\n ((OOOOOOOO))\n  \\:~=++=~:/\n\n<%= pkg.title %>\nChUI.Win.css\nCopyright <%= grunt.template.today("yyyy") %> Sourcebits www.sourcebits.com\nLicense: <%= pkg.licences[0].type %>\nVersion: <%= pkg.version %>\n*/\n'
         },
-         src: ['<%= pkg.projectPath %>chui/chui-win-<%= pkg.version %>.css'],
+        src: ['<%= pkg.projectPath %>chui/chui-win-<%= pkg.version %>.css'],
         dest: '<%= pkg.projectPath %>chui/chui-win-<%= pkg.version %>.css'
       },
       // Concat the ChUIJS files together:
       chui: {
         options: {},
         src: [
-          'src/chui/utils.js', 
-          'src/chui/events.js', 
-          'src/chui/detectors.js', 
-          'src/chui/gestures.js', 
-          'src/chui/desktop.js', 
-          'src/chui/layout.js', 
-          'src/chui/pubsub.js', 
-          'src/chui/navigation.js', 
-          'src/chui/buttons.js', 
-          'src/chui/blockui.js', 
-          'src/chui/center.js', 
-          'src/chui/busy.js', 
-          'src/chui/popup.js', 
-          'src/chui/popover.js', 
-          'src/chui/segmented.js', 
-          'src/chui/togglePanel.js', 
-          'src/chui/paging.js', 
-          'src/chui/deletableList.js', 
-          'src/chui/selectList.js', 
-          'src/chui/sheet.js', 
-          'src/chui/slideout.js', 
-          'src/chui/stepper.js', 
-          'src/chui/switch.js', 
-          'src/chui/scroll.js', 
-          'src/chui/tabbar.js', 
+          'src/chui/utils.js',
+          'src/chui/events.js',
+          'src/chui/detectors.js',
+          'src/chui/gestures.js',
+          'src/chui/desktop.js',
+          'src/chui/layout.js',
+          'src/chui/pubsub.js',
+          'src/chui/navigation.js',
+          'src/chui/buttons.js',
+          'src/chui/blockui.js',
+          'src/chui/center.js',
+          'src/chui/busy.js',
+          'src/chui/popup.js',
+          'src/chui/popover.js',
+          'src/chui/segmented.js',
+          'src/chui/togglePanel.js',
+          'src/chui/paging.js',
+          'src/chui/deletableList.js',
+          'src/chui/selectList.js',
+          'src/chui/sheet.js',
+          'src/chui/slideout.js',
+          'src/chui/stepper.js',
+          'src/chui/switch.js',
+          'src/chui/scroll.js',
+          'src/chui/tabbar.js',
           'src/chui/templates.js'
         ],
         dest: '<%= pkg.projectPath %>chui/chui-<%= pkg.version %>.js'
@@ -82,8 +89,8 @@ module.exports = function(grunt) {
           banner: '/*\n    pO\\\n   6  /\\\n     /OO\\\n    /OOOO\\\n  /OOOOOOOO\\\n ((OOOOOOOO))\n  \\:~=++=~:/\n\n<%= pkg.title %>\nChUI.js\nCopyright <%= grunt.template.today("yyyy") %> Sourcebits www.sourcebits.com\nLicense: <%= pkg.licences[0].type %>\nVersion: <%= pkg.version %>\n*/\n'
         },
         src: [
-          'src/chui/start.js', 
-          '<%= pkg.projectPath %>chui/chui-<%= pkg.version %>.js', 
+          'src/chui/start.js',
+          '<%= pkg.projectPath %>chui/chui-<%= pkg.version %>.js',
           'src/chui/end.js'
         ],
         dest: '<%= pkg.projectPath %>chui/chui-<%= pkg.version %>.js'
@@ -158,30 +165,36 @@ module.exports = function(grunt) {
         options: {
           banner: '/*\nChocolateChip-UI\nChUI-Android.css\nCopyright <%= grunt.template.today("yyyy") %> Sourcebits www.sourcebits.com\nLicense: <%= pkg.licences[0].type %>\nVersion: <%= pkg.version %>\n*/'
         },
-        files: {'<%= pkg.projectPath %>chui/chui-android-<%= pkg.version %>.min.css': '<%= pkg.projectPath %>chui/chui-android-<%= pkg.version %>.css'}
+        files: {
+          '<%= pkg.projectPath %>chui/chui-android-<%= pkg.version %>.min.css': '<%= pkg.projectPath %>chui/chui-android-<%= pkg.version %>.css'
+        }
       },
       ios: {
         options: {
           banner: '/*\nChocolateChip-UI\nChUI-iOS.css\nCopyright <%= grunt.template.today("yyyy") %> Sourcebits www.sourcebits.com\nLicense: <%= pkg.licences[0].type %>\nVersion: <%= pkg.version %>\n*/'
         },
-        files: {'<%= pkg.projectPath %>chui/chui-ios-<%= pkg.version %>.min.css': '<%= pkg.projectPath %>chui/chui-ios-<%= pkg.version %>.css'}
+        files: {
+          '<%= pkg.projectPath %>chui/chui-ios-<%= pkg.version %>.min.css': '<%= pkg.projectPath %>chui/chui-ios-<%= pkg.version %>.css'
+        }
       },
       win: {
         options: {
           banner: '/*\nChocolateChip-UI\nChUI-Win.css\nCopyright <%= grunt.template.today("yyyy") %> Sourcebits www.sourcebits.com\nLicense: <%= pkg.licences[0].type %>\nVersion: <%= pkg.version %>\n*/'
         },
-        files: {'<%= pkg.projectPath %>chui/chui-win-<%= pkg.version %>.min.css': '<%= pkg.projectPath %>chui/chui-win-<%= pkg.version %>.css'}
+        files: {
+          '<%= pkg.projectPath %>chui/chui-win-<%= pkg.version %>.min.css': '<%= pkg.projectPath %>chui/chui-win-<%= pkg.version %>.css'
+        }
       }
     },
     // Copy files out of src directory:
     copy: {
       // Copy out images:
       images: {
-        files: [{ 
+        files: [{
           expand: true,
-          cwd: 'src/images/', 
-          src: ['**/*.{png,jpg,svg}'], 
-          dest:'<%= pkg.projectPath %>images/' 
+          cwd: 'src/images/',
+          src: ['**/*.{png,jpg,svg}'],
+          dest: '<%= pkg.projectPath %>images/'
         }]
       },
       // Copy out data files:
@@ -195,59 +208,37 @@ module.exports = function(grunt) {
       },
       // Copy out index for Android examples:
       index_android: {
-        files: [
-         {
-          expand: true, 
-          cwd: 'src/', 
-          src: ['index.html'], 
+        files: [{
+          expand: true,
+          cwd: 'src/',
+          src: ['index.html'],
           dest: '<%= pkg.projectPath %>examples-android/'
-         }
-        ]
+        }]
       },
       // Copy out index for iOS examples:
-      index_ios : {
-        files: [
-         {
-          expand: true, 
-          cwd: 'src/', 
-          src: ['index.html'], 
+      index_ios: {
+        files: [{
+          expand: true,
+          cwd: 'src/',
+          src: ['index.html'],
           dest: '<%= pkg.projectPath %>examples-ios/'
-         }
-        ],
+        }]
       },
       // Copy out index for Windows Phone 8 examples:
-      index_win:  {
-        files: [
-         {
-          expand: true, 
-          cwd: 'src/', 
-          src: ['index.html'], 
+      index_win: {
+        files: [{
+          expand: true,
+          cwd: 'src/',
+          src: ['index.html'],
           dest: '<%= pkg.projectPath %>examples-win/'
-         }
-        ]
+        }]
       }
     },
     // Run JsHint on JavaScript files:
     // Rules to follow for linting:
     jshint: {
       options: {
-        curly: false,
-        browser: true,
-        eqeqeq: true,
-        forin: false,
-        immed: false,
-        expr: false,
-        indent: false,
-        noempty: true,
-        plusplus: false,
-        unused: false,
-        boss: true,
-        evil: true,
-        laxbreak: true,
-        multistr: true,
-        scripturl: true,
-        '-W030': true,
-        '-W083': false
+        browser: true
       },
       chui: ['<%= pkg.projectPath %>chui/chui-<%= pkg.version %>.js']
     },
@@ -270,7 +261,7 @@ module.exports = function(grunt) {
       },
       chui: {
         files: {
-          '<%= pkg.projectPath %>chui/chui-<%= pkg.version %>.min.js': '<%= pkg.projectPath %>chui/chui-<%= pkg.version %>.js' 
+          '<%= pkg.projectPath %>chui/chui-<%= pkg.version %>.min.js': '<%= pkg.projectPath %>chui/chui-<%= pkg.version %>.js'
         }
       }
     },
@@ -282,10 +273,9 @@ module.exports = function(grunt) {
         },
         options: {
           replacements: [{
-            pattern: /\(function\(\$\) {\n^.*\'use strict\';/img,
+            pattern: /\(function\(\$\) \{\n^ *\'use strict\';/img,
             replacement: ''
-          },
-          {
+          }, {
             pattern: /\}\)\(window\.jQuery\);/img,
             replacement: ''
           }]
@@ -296,7 +286,7 @@ module.exports = function(grunt) {
           '<%= pkg.projectPath %>chui/chui-<%= pkg.version %>.js': '<%= pkg.projectPath %>chui/chui-<%= pkg.version %>.js'
         },
         options: {
-          replacements: [{            
+          replacements: [{
             pattern: /\n\n\n/img,
             replacement: '\n\n'
           }]
@@ -325,12 +315,12 @@ module.exports = function(grunt) {
         },
         files: ['src/examples/*.html', 'src/demo/*.html'],
         tasks: [
-          'concat:example_android', 
-          'concat:demo_android', 
-          'concat:example_ios', 
-          'concat:demo_android', 
-          'concat:example_win', 
-          'concat:demo_android', 
+          'concat:example_android',
+          'concat:demo_android',
+          'concat:example_ios',
+          'concat:demo_android',
+          'concat:example_win',
+          'concat:demo_android',
           'copy'
         ]
       }
@@ -350,7 +340,7 @@ module.exports = function(grunt) {
   // Default build:
   grunt.registerTask('default', [
     'chuijs',
-    'themes', 
+    'themes',
     'android_examples',
     'ios_examples',
     'win_examples'
@@ -358,80 +348,80 @@ module.exports = function(grunt) {
 
   // Build all three themes with ChUI.js:
   grunt.registerTask('chui', [
-    'chuijs', 
+    'chuijs',
     'themes'
   ]);
 
   // Build just ChUI.js:
   grunt.registerTask('chuijs', [
-    'concat:chui', 
+    'concat:chui',
     'string-replace:dist',
     'string-replace:newlines',
-    'concat:wrap', 
-    'jshint', 
+    'concat:wrap',
+    'jshint',
     'uglify'
   ]);
 
   // Build Android theme:
   grunt.registerTask('android', [
-    'less:android', 
-    'concat:android', 
+    'less:android',
+    'concat:android',
     'cssmin:android'
   ]);
 
   // Build iOS theme:
   grunt.registerTask('ios', [
-    'less:ios', 
-    'concat:ios', 
+    'less:ios',
+    'concat:ios',
     'cssmin:ios'
   ]);
 
   // Build Windows theme:
   grunt.registerTask('win', [
-    'less:win', 
-    'concat:win', 
+    'less:win',
+    'concat:win',
     'cssmin:win'
   ]);
 
   // Build all three themes:
   grunt.registerTask('themes', [
-    'less', 
-    'concat:android', 
-    'concat:ios', 
-    'concat:win', 
+    'less',
+    'concat:android',
+    'concat:ios',
+    'concat:win',
     'cssmin'
   ]);
 
   // Build Android examples:
   grunt.registerTask('android_examples', [
-    'android', 
+    'android',
     'chuijs',
-    'concat:examples_android', 
-    'concat:demo_android', 
-    'copy:images', 
-    'copy:data', 
+    'concat:examples_android',
+    'concat:demo_android',
+    'copy:images',
+    'copy:data',
     'copy:index_android'
   ]);
 
   // Build iOS examples:
   grunt.registerTask('ios_examples', [
-    'ios', 
-    'chuijs',  
-    'concat:examples_ios', 
-    'concat:demo_ios', 
-    'copy:images', 
-    'copy:data', 
+    'ios',
+    'chuijs',
+    'concat:examples_ios',
+    'concat:demo_ios',
+    'copy:images',
+    'copy:data',
     'copy:index_ios'
   ]);
 
   // Build Windows Phone 8 examples:
   grunt.registerTask('win_examples', [
-    'win',  
-    'chuijs', 
-    'concat:examples_win', 
-    'concat:demo_win', 
-    'copy:images', 
-    'copy:data', 
+    'win',
+    'chuijs',
+    'concat:examples_win',
+    'concat:demo_win',
+    'copy:images',
+    'copy:data',
     'copy:index_win'
   ]);
 };

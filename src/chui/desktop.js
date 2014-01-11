@@ -1,11 +1,11 @@
-(function($) {
+(function ($) {
   'use strict';
 
   /////////////////////////////////////////
   // Set classes for desktop compatibility:
   /////////////////////////////////////////
   $.extend({
-    UIDesktopCompat : function ( ) {
+    UIDesktopCompat : function () {
       if ($.isDesktop && $.isSafari) {
         $('body').addClass('isiOS').addClass('isDesktopSafari');
       } else if ($.isDesktop && $.isChrome) {
@@ -17,18 +17,20 @@
   // Determine browser version:
   ////////////////////////////////
   $.extend({
-    browserVersion : function ( ) {
-      var n = navigator.appName;
-      var ua = navigator.userAgent;
-      var temp;
-      var m = ua.match(/(opera|chrome|safari|firefox|msie)\/?\s*(\.?\d+(\.\d+)*)/i);
-      if (m && (temp = ua.match(/version\/([\.\d]+)/i))!== null) m[2]= temp[1];
-      m = m ? [m[1], m[2]]: [n, navigator.appVersion, '-?'];
+    browserVersion : function () {
+      var n = navigator.appName,
+        ua = navigator.userAgent,
+        temp,
+        m = ua.match(/(opera|chrome|safari|firefox|msie)\/?\s*(\.?\d+(\.\d+)*)/i);
+      if (m && (temp = ua.match(/version\/([\.\d]+)/i)) !== null) {
+        m[2] = temp[1];
+      }
+      m = m ? [m[1], m[2]] : [n, navigator.appVersion, '-?'];
       return m[1];
     }
   });
 
-  $(function() {
+  $(function () {
     ////////////////////////////////
     // Added classes for client side
     // os-specific styles:

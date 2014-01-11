@@ -11,7 +11,8 @@
       var regex;
       variable = variable || 'data';
       regex = /\[\[=([\s\S]+?)\]\]/g;
-      var template =  new Function(variable, 
+      /*jslint evil: true*/
+      var template = new Function(variable, 
         "var p=[];" + "p.push('" + tmpl
         .replace(/[\r\t\n]/g, " ")
         .split("'").join("\\'")
@@ -19,6 +20,7 @@
         .split('[[').join("');")
         .split(']]').join("p.push('") + "');" +
         "return p.join('');");
+      /*jslint evil: false*/
       return template;
     }
   });

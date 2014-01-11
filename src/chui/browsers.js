@@ -1,16 +1,14 @@
-(function($) {
+(function ($) {
   'use strict';
 
   //////////////////////////////////
   // Flag if native Android browser:
   //////////////////////////////////
-  if ((/android/img.test(navigator.userAgent)) && (/webkit/img.test(navigator.userAgent) ) && (!/Chrome/img.test(navigator.userAgent))) {
+  if ((/android/img.test(navigator.userAgent)) && (/webkit/img.test(navigator.userAgent)) && (!/Chrome/img.test(navigator.userAgent))) {
     document.body.classList.add('isNativeAndroidBrowser');
   }
-
-  'use strict';
   $.extend({
-    UIDesktopCompat : function ( ) {
+    UIDesktopCompat : function () {
       if ($.isDesktop && $.isSafari) {
         $('body').addClass('isiOS').addClass('isDesktopSafari');
       } else if ($.isDesktop && $.isChrome) {
@@ -23,18 +21,20 @@
   // Determine browser version:
   /////////////////////////////
   $.extend({
-    browserVersion : function ( ) {
-      var n = navigator.appName;
-      var ua = navigator.userAgent;
-      var temp;
-      var m = ua.match(/(opera|chrome|safari|firefox|msie)\/?\s*(\.?\d+(\.\d+)*)/i);
-      if (m && (temp = ua.match(/version\/([\.\d]+)/i))!== null) m[2]= temp[1];
-      m = m ? [m[1], m[2]]: [n, navigator.appVersion, '-?'];
+    browserVersion : function () {
+      var n = navigator.appName,
+        ua = navigator.userAgent,
+        temp,
+        m = ua.match(/(opera|chrome|safari|firefox|msie)\/?\s*(\.?\d+(\.\d+)*)/i);
+      if (m && (temp = ua.match(/version\/([\.\d]+)/i)) !== null) {
+        m[2] = temp[1];
+      }
+      m = m ? [m[1], m[2]] : [n, navigator.appVersion, '-?'];
       return m[1];
     }
   });
 
-  $(function() {
+  $(function () {
     ////////////////////////////////
     // Added classes for client side
     // os-specific styles:

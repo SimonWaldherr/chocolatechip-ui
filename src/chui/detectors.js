@@ -1,6 +1,6 @@
-(function($) {
-  'use strict'; 
- 
+(function ($) {
+  'use strict';
+
   $.extend({
     isiPhone : /iphone/img.test(navigator.userAgent),
     isiPad : /ipad/img.test(navigator.userAgent),
